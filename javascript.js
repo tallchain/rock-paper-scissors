@@ -10,4 +10,9 @@ function getComputerChoice() {
 }
 getComputerChoice()
 
-getComputerChoice()
+//Human Choice
+function getHumanChoice() {
+    let choice = prompt("Which weapon will you take into battle: rock, paper, or scissors?")
+    console.log(choice)
+}
+getHumanChoice()
