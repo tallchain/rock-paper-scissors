@@ -2,17 +2,21 @@
 function getComputerChoice() {
     let computerChoice = (Math.floor(Math.random()*3))
     if (computerChoice == 0 ) {
-        console.log("Rock");
+        let computerSelection="Rock"
+        console.log(computerSelection);
     } else if (computerChoice == 1) {
-        console.log("Paper");
-    } else {console.log("Scissors");
+        let computerSelection="Paper"
+        console.log(computerSelection)
+    } else {
+        let computerSelection="Scissors";
+        console.log(computerSelection)
     }
 }
 getComputerChoice()
 
 //Human Choice
 function getHumanChoice() {
-    let choice = prompt("Which weapon will you take into battle: rock, paper, or scissors?");
-    console.log(((choice.charAt(0)).toUpperCase()) + ((choice.slice(1)).toLowerCase()));
+    let humanChoice = prompt("Which weapon will you take into battle: rock, paper, or scissors?");
+    console.log(((humanChoice.charAt(0)).toUpperCase()) + ((humanChoice.slice(1)).toLowerCase()));
 }
 getHumanChoice()
