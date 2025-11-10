@@ -1,8 +1,8 @@
 //Global Scope
 let humanScore = 0
 let computerScore = 0
-let humanWin = "You win!"
-let humanLose = "You lose!!"
+let humanWin = "You win!!!"
+let humanLose = "You lose!!!"
 let humanTie = "You tie!!!"
 
 //Computer Choice 
@@ -21,7 +21,51 @@ function getComputerChoice() {
 }
 //Human Choice
 function getHumanChoice() {
-    let humanChoice = prompt("Which weapon will you take into battle: rock, paper, or scissors?");
+    let humanChoice = prompt("Rock, Paper, or Scissors BATTLE START!!!");
     return(((humanChoice.charAt(0)).toUpperCase()) + ((humanChoice.slice(1)).toLowerCase()));
 }
-getHumanChoice()
+//Play
+function playRound(humanChoice, computerChoice) {   
+    //tie
+    if (humanChoice === computerChoice) {
+        console.log(humanTie)}
+
+    //if human rock, pc scissors(
+    //win
+    else if (humanChoice == "Rock" && computerChoice == "Scissors") {
+    console.log(humanWin)}
+
+    //if human rock, pc paper
+    //lose
+    else if (humanChoice == "Rock" && computerChoice == "Paper") {
+    console.log(humanLose)}
+    //if human paper, pc rock
+    //win
+    else if (humanChoice == "Paper" && computerChoice == "Rock") {
+    console.log(humanWin)}
+
+    //if human paper, pc scissors
+    //lose
+    else if (humanChoice == "Paper" && computerChoice == "Scissors") {
+    console.log(humanLose)}
+
+    //if human scissors, pc paper
+    //win
+    else if (humanChoice == "Scissors" && computerChoice == "Paper") {
+        console.log(humanWin)}
+                
+    //if human scissors, pc rock
+    //lose
+    else if (humanChoice == "Scissors" && computerChoice == "Rock") {
+        console.log(humanLose)};
+
+    //if player win = +1
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+playRound(humanSelection, computerSelection)
+
+//Show selections for testing
+console.log(humanSelection)
+console.log(computerSelection)
