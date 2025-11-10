@@ -4,7 +4,7 @@ let computerScore = 0
 let humanWin = "You win!!!"
 let humanLose = "You lose!!!"
 let humanTie = "You tie!!!"
-
+let i = 0
 //Computer Choice 
 function getComputerChoice() {
     let computerChoice = (Math.floor(Math.random()*3))
@@ -62,10 +62,17 @@ function playRound(humanChoice, computerChoice) {
     //if player win = +1
 }
 
+function updateCount () {
+    if (playRound == humanWin) {
+        console.log("h gets " + (+humanScore + ++i));
+    } else {console.log("pc gets " + (+computerScore + ++i));}
+}
+
+
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 playRound(humanSelection, computerSelection)
 
-//Show selections for testing
 console.log(humanSelection)
 console.log(computerSelection)
+updateCount()
