@@ -97,3 +97,13 @@ playGame();
 playGame();
 playGame();
 playGame();
+winner();
+function winner() {
+    if (humanScore == computerScore) {
+        console.log("You both had the same number of points!");
+    } else if (humanScore > computerScore) {
+        console.log("You had more points! You win!");
+    } else {
+        console.log("The computer had more points. You lost!");
+    }
+}
