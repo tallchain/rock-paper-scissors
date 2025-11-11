@@ -10,14 +10,11 @@ function playGame()
 function getComputerChoice() {
     let computerChoice = (Math.floor(Math.random()*3))
     if (computerChoice == 0 ) {
-        let computerChoice="Rock"
-        return computerChoice;
+        return "Rock";
     } else if (computerChoice == 1) {
-        let computerChoice="Paper"
-        return computerChoice
+        return "Paper"
     } else {
-        let computerChoice="Scissors";
-        return computerChoice
+        return "Scissors"
     }
 }
 //Human Choice
@@ -27,63 +24,29 @@ function getHumanChoice() {
 }
 //Play
 function playRound(humanChoice, computerChoice) {   
-    //tie
     if (humanChoice === computerChoice) {
     return humanTie}
-
-    //if human rock, pc scissors(
-    //win
-    else if (humanChoice == "Rock" && computerChoice == "Scissors") {
+    else if (humanChoice == "Rock" && computerChoice == "Scissors" 
+        || humanChoice == "Paper" && computerChoice == "Rock"
+        || humanChoice == "Scissors" && computerChoice == "Paper") {
     return humanWin}
-
-    //if human rock, pc paper
-    //lose
-    else if (humanChoice == "Rock" && computerChoice == "Paper") {
+    else (humanChoice == "Rock" && computerChoice == "Paper"
+        || humanChoice == "Paper" && computerChoice == "Scissors"
+        || humanChoice == "Scissors" && computerChoice == "Rock"); {
     return humanLose}
-    //if human paper, pc rock
-    //win
-    else if (humanChoice == "Paper" && computerChoice == "Rock") {
-    return humanWin}
-
-    //if human paper, pc scissors
-    //lose
-    else if (humanChoice == "Paper" && computerChoice == "Scissors") {
-    return humanLose}
-
-    //if human scissors, pc paper
-    //win
-    else if (humanChoice == "Scissors" && computerChoice == "Paper") {
-        return humanWin}
-                
-    //if human scissors, pc rock
-    //lose
-    else if (humanChoice == "Scissors" && computerChoice == "Rock") {
-        return humanLose};
-
 }
-
-
 //Execution
-//asks human choice and stores in humanSelection
 const humanSelection = getHumanChoice();
-//asks computer choice
 const computerSelection = getComputerChoice();
-//makes playround(params) return into result var
 const result = playRound(humanSelection, computerSelection);
-
-
-
-//displays result in console
 console.log(result)
-//displays human choice
 console.log(humanSelection)
-//displays computer choice
 console.log(computerSelection)
-//adds to score
 updateCount()
 
 //executes playRound
 playRound(humanSelection, computerSelection)
+
 function updateCount () {
     if (result == humanWin) {
         console.log("h now has " + (++humanScore));
@@ -91,9 +54,7 @@ function updateCount () {
     } else {console.log("NO ONE gets a point :(")};
 }}
 function winner() {
-    if (humanScore == computerScore) {
-        console.log("You both had the same number of points!");
-    } else if (humanScore > computerScore) {
+    if (humanScore > computerScore) {
         console.log("You had more points! You win!");
     } else {
         console.log("The computer had more points. You lost!");
