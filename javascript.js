@@ -5,7 +5,8 @@ let humanWin = "You win!!!"
 let humanLose = "You lose!!!"
 let humanTie = "You tie!!!"
 let i = 0
-//Computer Choice 
+function playGame()
+{//Computer Choice 
 function getComputerChoice() {
     let computerChoice = (Math.floor(Math.random()*3))
     if (computerChoice == 0 ) {
@@ -59,26 +60,19 @@ function playRound(humanChoice, computerChoice) {
     else if (humanChoice == "Scissors" && computerChoice == "Rock") {
         return humanLose};
 
-    //if player win = +1
 }
 
-function updateCount () {
-    if (result == humanWin) {
-        console.log("h gets " + (+humanScore + ++i));
-    } else if (result == humanLose) {console.log("pc gets " + (+computerScore + ++i));
-    } else {console.log("NO ONE gets a point :(")};
-    }
 
 //Execution
 //asks human choice and stores in humanSelection
 const humanSelection = getHumanChoice();
 //asks computer choice
 const computerSelection = getComputerChoice();
-//executes playRound function with following params
-playRound(humanSelection, computerSelection)
-
 //makes playround(params) return into result var
 const result = playRound(humanSelection, computerSelection);
+
+
+
 //displays result in console
 console.log(result)
 //displays human choice
@@ -88,3 +82,18 @@ console.log(computerSelection)
 //adds to score
 updateCount()
 
+//executes playRound function with following params
+playRound(humanSelection, computerSelection)
+function updateCount () {
+    if (result == humanWin) {
+        console.log("h now has " + (++humanScore));
+    } else if (result == humanLose) {console.log("pc now has " + (++computerScore));
+    } else {console.log("NO ONE gets a point :(")};
+    }
+}
+
+playGame();
+playGame();
+playGame();
+playGame();
+playGame();
