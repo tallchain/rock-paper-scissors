@@ -4,7 +4,7 @@ let computerScore = 0
 let humanWin = "You win!!!"
 let humanLose = "You lose!!!"
 let humanTie = "You tie!!!"
-let i = 0
+
 function playGame()
 {//Computer Choice 
 function getComputerChoice() {
@@ -82,22 +82,14 @@ console.log(computerSelection)
 //adds to score
 updateCount()
 
-//executes playRound function with following params
+//executes playRound
 playRound(humanSelection, computerSelection)
 function updateCount () {
     if (result == humanWin) {
         console.log("h now has " + (++humanScore));
     } else if (result == humanLose) {console.log("pc now has " + (++computerScore));
     } else {console.log("NO ONE gets a point :(")};
-    }
-}
-
-playGame();
-playGame();
-playGame();
-playGame();
-playGame();
-winner();
+}}
 function winner() {
     if (humanScore == computerScore) {
         console.log("You both had the same number of points!");
@@ -107,3 +99,6 @@ function winner() {
         console.log("The computer had more points. You lost!");
     }
 }
+for (let i = 0; i < 5; i++) {
+    playGame()}
+winner();
