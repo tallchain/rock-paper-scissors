@@ -4,6 +4,7 @@ let computerScore = 0
 let humanWin = "You win!!!"
 let humanLose = "You lose!!!"
 let humanTie = "You tie!!!"
+const score = document.querySelector(".score")
 const buttonR = document.querySelector(".rock")
 const buttonP = document.querySelector(".paper")
 const buttonS = document.querySelector(".scissors")
@@ -19,18 +20,14 @@ function playGame()
 function getComputerChoice() {
     let computerChoice = (Math.floor(Math.random()*3))
     if (computerChoice == 0 ) {
-        return "Rock";
-    } else if (computerChoice == 1) {
-        return "Paper"
-    } else {
+        return "Rock";} 
+    else if (computerChoice == 1) {
+        return "Paper"} 
+    else {
         return "Scissors"
     }
 }
-//Human Choice
-// function getHumanChoice() {
-//     let humanChoice = prompt("Rock, Paper, or Scissors BATTLE START!!!");
-//     return(((humanChoice.charAt(0)).toUpperCase()) + ((humanChoice.slice(1)).toLowerCase()));
-// }
+
 //Play
 function playRound(humanChoice, computerChoice) {   
     if (humanChoice === computerChoice) {
@@ -38,10 +35,12 @@ function playRound(humanChoice, computerChoice) {
     else if (humanChoice == "Rock" && computerChoice == "Scissors" 
         || humanChoice == "Paper" && computerChoice == "Rock"
         || humanChoice == "Scissors" && computerChoice == "Paper") {
+            ++humanScore;
         return humanWin}
     else (humanChoice == "Rock" && computerChoice == "Paper"
         || humanChoice == "Paper" && computerChoice == "Scissors"
         || humanChoice == "Scissors" && computerChoice == "Rock"); {
+            ++computerScore;
     return humanLose}
 }
 //Score Count
@@ -54,10 +53,7 @@ console.log(`computer: ${computerSelection}`)
 updateCount()
 
 function updateCount () {
-    if (result == humanWin) {
-        console.log("h now has " + (++humanScore));
-    } else if (result == humanLose) {console.log("pc now has " + (++computerScore));
-    } else {console.log("NO ONE gets a point :(")};
+        score.textContent = `Human: ${(humanScore)} Computer: ${computerScore}`;
 }
 function winner() {
     if (humanScore > computerScore) {
