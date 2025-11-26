@@ -1,10 +1,8 @@
 //Global Scope
 let humanScore = 0
 let computerScore = 0
-let humanWin = "You win!!!"
-let humanLose = "You lose!!!"
-let humanTie = "You tie!!!"
 const score = document.querySelector(".score")
+const finalResult = document.querySelector(".finalResult")
 const buttonR = document.querySelector(".rock")
 const buttonP = document.querySelector(".paper")
 const buttonS = document.querySelector(".scissors")
@@ -27,41 +25,34 @@ function getComputerChoice() {
         return "Scissors"
     }
 }
-
 //Play
 function playRound(humanChoice, computerChoice) {   
-    if (humanChoice === computerChoice) {
-        return humanTie}
+    if (humanChoice === computerChoice){}
     else if (humanChoice == "Rock" && computerChoice == "Scissors" 
         || humanChoice == "Paper" && computerChoice == "Rock"
         || humanChoice == "Scissors" && computerChoice == "Paper") {
-            ++humanScore;
-        return humanWin}
+            ++humanScore;}
     else (humanChoice == "Rock" && computerChoice == "Paper"
         || humanChoice == "Paper" && computerChoice == "Scissors"
         || humanChoice == "Scissors" && computerChoice == "Rock"); {
-            ++computerScore;
-    return humanLose}
+            ++computerScore;}
 }
-//Score Count
-const humanSelection = humanChoice;
 const computerSelection = getComputerChoice();
-const result = playRound(humanSelection, computerSelection);
-console.log(result)
-console.log(`human: ${humanSelection}`)
-console.log(`computer: ${computerSelection}`)
+playRound(humanChoice, computerSelection);
+//Scores
 updateCount()
-
 function updateCount () {
         score.textContent = `Human: ${(humanScore)} Computer: ${computerScore}`;
+    }
+if (humanScore == 5 || computerScore == 5) {
+    winner()
+    }
 }
 function winner() {
     if (humanScore > computerScore) {
-        console.log("You had more points! You win!");
+        finalResult.textContent = "You had 5 points first! You win!";
     } else if (humanScore < computerScore) {
-        console.log("The computer had more points. You lost!");}
-        else { console.log("It's a tie!")
+        finalResult.textContent = "The computer reached 5 points first. You lost!";}
+        else {finalResult.textContent = "It's a tie!"
         }
     }
-winner();
-}
